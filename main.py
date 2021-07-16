@@ -8,7 +8,7 @@ api_hash =  os.environ['API_HASH']
 buname = os.environ['BUNAME']
 app = Client(buname, api_id=api_id, api_hash=api_hash, bot_token=token)
 
-@app.on_message(filters.command(["кто?"]))
+@app.on_message(filters.command(["кто?", "кто", "who?", "who"]))
 def echo(client, message):
     ulist  = app.get_chat_members(message.chat.id)
     str_ulist =[]
