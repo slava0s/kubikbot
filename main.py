@@ -13,8 +13,8 @@ def echo(client, message):
     ulist  = app.get_chat_members(message.chat.id)
     str_ulist =[]
     for user in ulist:
-        if (not user.user.is_bot) and (user.user.username is not None):
-            str_ulist.append(user.user.username)
+        if (not user.user.is_bot):
+            str_ulist.append(user.user.username if user.user.username else  user.user.first_name)
     message.reply_text("@{username}".format(username=random.choice(str_ulist)))
 
 app.run()
