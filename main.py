@@ -14,7 +14,9 @@ def echo(client, message):
     str_ulist =[]
     for user in ulist:
         if (not user.user.is_bot):
-            str_ulist.append(user.user.username if user.user.username else  "tg://user?id={uid}".format(uid=user.user.id))
+            str_ulist.append(user.user.username if user.user.username else "[{tuname}](tg://user?id={uid})".format(
+                uid=user.user.id,
+                tuname=user.user.first_name))
     message.reply_text("@{username}".format(username=random.choice(str_ulist)))
 
 app.run()
